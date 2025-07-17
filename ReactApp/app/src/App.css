@@ -1,0 +1,65 @@
+
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(29, 27, 27) ;
+}
+
+.Container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-items: center;
+  flex-direction: column;
+  height: 500px;
+  width: 400px;
+  border-radius: 25px;
+  background-color: rgb(34, 53, 87);
+}
+
+.Profile-Pic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 170px;
+  width: 170px;
+  border-radius: 100px;
+  background-color: rgb(57, 80, 119);
+}
+
+.Picture{
+  width: 90%;
+  height: 90%;
+  border-radius: 100px;
+}
+
+.Profile{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(57, 80, 119);
+  border-radius: 20px;
+  height: 50%;
+  width: 80%;
+}
+
+.Info-Container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Label{
+  font-weight: 700;
+}
+
+p{
+  font-size: 1.1em;
+  margin: 0;
+  color: rgb(237, 237, 237);
+}
