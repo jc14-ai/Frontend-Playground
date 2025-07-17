@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Sarina&display=swap');
 body{
     display: flex;
     align-items: center;
@@ -78,7 +78,7 @@ body{
     cursor: pointer;
 }
 
-img{
+.cover-page{
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -114,16 +114,83 @@ img{
 }
 
 .nav-order-button{
-    font-size: 0.8em;
-    font-style: 800;
+    font-size: 0.75em;
+    font-weight: 600;
     font-family: "Special Gothic Expanded One", sans-serif;
     color: rgb(56, 112, 56);
     border: 3px solid rgb(56, 112, 56);
     border-radius: 14px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 25px;
+    padding-right: 25px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.nav-order-button:hover{
+    color: rgb(227, 227, 227);
+    background-color: rgb(56, 112, 56);
+}
+.links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    font-size: 1.2em;
+    font-weight: 400;
+    color: rgb(48, 44, 44);
+    font-family: "Special Gothic Expanded One", sans-serif;
+}
+
+.search-image{
+    width: 25px;
+}
+
+.cart-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 200px;
+
+}
+
+.cart-text{
+    font-size: 1em;
+    font-weight: 600;
+    color: rgb(48, 44, 44);
+    font-family: "Special Gothic Expanded One", sans-serif;
+}
+
+.cart-bag-image{
+    width: 30px;
+}
+
+.inner-cart-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 70%;
+    border: 1px;
+}
+
+.name{
+    font-family: "Sarina", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+}
+
+.link{
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.link:hover{
+    background-color: rgb(56, 112, 56);
+    color: rgb(227, 227, 227);
 }
 
 
