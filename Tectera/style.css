@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+}   
+
+.stick-container{
+    position:fixed;
+    width: 100vw;
+    height: 140px;
+    top: 0;
+    z-index: 2;
+}
+
+.contact-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(56, 112, 56);
+    width: 100%;
+    height: 30%;
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-around;    
+    align-items: center;
+    background-color: rgb(227, 227, 227);
+    width: 100%;
+    height: 70%;
+}
+
+.head-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 800px;
+    overflow: hidden;
+}
+
+.head-middle-container{
+    display: flex;
+    position:absolute;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1;
+}   
+
+.text-header{
+    color: rgb(227, 227, 227);
+    font-size: clamp(3em, 5vw, 5em);
+    font-family: "Special Gothic Expanded One", sans-serif;
+    font-weight: 800;
+    font-style: bold;
+    margin: auto;
+}
+
+.order-button{
+    font-size: 0.8em;
+    font-family: "Special Gothic Expanded One", sans-serif;
+    background-color: rgb(56, 112, 56);
+    color: rgb(227, 227, 227);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 14px;
+    font-weight: 800;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.contact-left{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+
+.contact-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    gap: 30px;
+}
+
+.contact-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-family: "Special Gothic Expanded One", sans-serif;
+    color: white;
+    gap: 10px;
+}
+
+.contact-logo{
+    width: 20px;
+}
+
+.nav-order-button{
+    font-size: 0.8em;
+    font-style: 800;
+    font-family: "Special Gothic Expanded One", sans-serif;
+    color: rgb(56, 112, 56);
+    border: 3px solid rgb(56, 112, 56);
+    border-radius: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
