@@ -1,0 +1,22 @@
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+.Navbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  background-color: rgb(25, 23, 23);
+  position:sticky;
+  gap: 80px;
+  top: 0;
+}
+
+.link{
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
