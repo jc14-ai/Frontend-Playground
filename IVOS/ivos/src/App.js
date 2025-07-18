@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './Navbar';
-import Header from './Header'
+import Header from './Header';
+import About from './About';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       {/* HEADER*/}
       <Header/>
       {/* ABOUT*/}
+      <About/>
       {/* ARTISTS*/}
       {/* HITS */}
     </div>

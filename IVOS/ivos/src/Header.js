@@ -1,9 +1,11 @@
 function Header(){
     return (
     <div className="Header">
-        <h1 className="title-1">IV OF</h1>
+        <div className="title">
+            <h1 className="title-1">IV&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OF</h1>
         <h1 className="title-2">SPADES</h1>
-        <img className="band-image" src=""/>
+        </div>
+        <img className="band-image" src="ivos.jpeg"/>
     </div>
     )
 }
