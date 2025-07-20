@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Header from './Header';
 import About from './About';
 import Artists from './Artists'
+import Hits from './Hits';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       {/* ARTISTS*/}
       <Artists/>
       {/* HITS */}
+      <Hits/>
     </div>
   );
 }

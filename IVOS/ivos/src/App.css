@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Molengo&display=swap');
+
 .App {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  font-family: "Molengo", sans-serif;
 }
 
 .Navbar{
@@ -20,7 +23,7 @@
 .link{
   color: white;
   padding: 10px;
-  font-weight: 700;
+  font-weight: 1000;
   cursor: pointer;
   border-radius: 10px;
 }
@@ -46,13 +49,13 @@
 .title-1{
   margin: 0;
   font-size: 5.5em;
-  font-weight: 900;
+  font-weight: 2000;
 }
 
 .title-2{
   margin: 0;
   font-size: 5.5em;
-  font-weight: 900;
+  font-weight: 2000;
 }
 
 .band-image{
@@ -101,13 +104,13 @@
 .about-title-1{
   margin: 0;
   font-size: 4em;
-  font-weight: 800;
+  font-weight: 2000;
 }
 
 .about-title-2{
   margin: 0;
   font-size: 4em;
-  font-weight: 800;
+  font-weight: 2000;
 }
 
 .Artists{
@@ -135,11 +138,12 @@
 }
 
 .experience-text{
-  font-size: 1.3em;
+  font-size: 1.3em; 
   font-style: italic;
+  font-weight: 200;
   padding: 20px;
   color: white;
-  text-align: center;
+  text-align: center
 }
 
 .artist-image{
