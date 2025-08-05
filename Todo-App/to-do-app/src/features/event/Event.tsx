@@ -1,6 +1,6 @@
 function Event(){
-    return <div>
-        <h1>this is from event</h1>
+    return <div className='Event'>
+        
     </div>
 }
 

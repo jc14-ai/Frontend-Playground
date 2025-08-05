@@ -23,7 +23,7 @@ function App(){
   */
 
   return <div className='App'>
-  <Task/>
+  <Task />
   <Event/>
   </div>
 }
