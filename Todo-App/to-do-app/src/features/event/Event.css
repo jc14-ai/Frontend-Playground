@@ -1,4 +1,4 @@
-.Task{
+.Event{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,11 +6,11 @@
     height: 500px;
     width: 42%;
     border-radius: 20px;
-    background-color: rgb(222, 126, 126);
+    background-color: rgb(222, 222, 126);
     gap: 3%;
 }
 
-.task-input{
+.event-input{
     outline: none;
     border: none;
     border-radius: 40px;
@@ -21,7 +21,7 @@
     font-size: 1.2em;
 }
 
-.add-task-button{
+.add-event-button{
     font-size: 1.2em;
     height: 40px;
     width: 80%;
@@ -30,7 +30,7 @@
     cursor: pointer;
 }
 
-.task-container{
+.event-container{
     align-items: stretch;
     background-color: rgb(227, 227, 227);
     height: 200px;
@@ -41,28 +41,28 @@
     box-sizing: border-box;
 }
 
-.my-task{
+.my-event{
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: row;
     height: 50px;
     width: 93%;
-    background-color:  rgb(231, 152, 152);
+    background-color:  rgb(220, 231, 152);
     border-radius: 40px;
     padding-right: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-.task-button-container{
+.event-button-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100px;
 }
 
-.done-task-container{
+.done-event-container{
     align-items: stretch;
     background-color: rgb(227, 227, 227);
     height: 100px;
@@ -73,7 +73,7 @@
     box-sizing: border-box;
 }
 
-.my-done-task{
+.my-done-event{
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -87,17 +87,17 @@
     margin-bottom: 5px;
 }
 
-.remove-task-button{
+.remove-event-button{
     border: none;
     border-radius: 40px;
 }
 
-.done-task-button{
+.done-event-button{
     border: none;
     border-radius: 40px;
 }
 
-.delete-task-button{
+.delete-event-button{
     border: none;
     border-radius: 40px;
 }
