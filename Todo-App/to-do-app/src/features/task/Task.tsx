@@ -1,36 +1,42 @@
-import { useState } from "react";
+import { useState, useRef} from "react";
 import './Task.css'
 
 interface Props{
     id: number;
+    task: string;
 }
 
 function Task(){
    
-    const [count, countTask] = useState<number>(0);
-    const [boxes, giveBoxID] = useState<Props[]>([]);
-    const [doneBoxes, checkBoxID] = useState<Props[]>([]);
+    const [count, setCount] = useState<number>(0);
+    const [boxes, setBoxes] = useState<Props[]>([]);
+    const [doneBoxes, setDoneBoxes] = useState<Props[]>([]);
+    const valueRef = useRef<HTMLInputElement>(null);
 
     const addTask = ():void => {
-        countTask(count => count + 1);
-        giveBoxID(box => [...box, {id: count}]);
+        if (valueRef.current){
+            const input = valueRef.current.value;
+            setCount(count => count + 1);
+            setBoxes(box => [...box, {id: count, task: input}]);
+            valueRef.current.value = "";
+        }
     }
 
-    const checkTask = (id:number):void => {
-        checkBoxID(doneBoxes => [...doneBoxes, {id: id}])
+    const checkTask = (id:number, task:string):void => {
+        setDoneBoxes(doneBoxes => [...doneBoxes, {id: id, task: task}]);
         removeTask(id);
     }
 
     const removeTask = (id:number):void => {
-        giveBoxID(boxes => boxes.filter(box => box.id !== id))
+        setBoxes(boxes => boxes.filter(box => box.id !== id))
     }
 
     const deleteTask = (id:number):void => {
-        checkBoxID(doneBoxes => doneBoxes.filter(doneBox => doneBox.id !== id))
+        setDoneBoxes(boxes => boxes.filter(box => box.id !== id))
     }
 
     return <div className='Task'>
-        <input placeholder='To do' className='task-input' />
+        <input placeholder='To do' className='task-input' ref={valueRef}/>
 
         <button className='add-task-button' onClick={addTask}>
             Add Task
@@ -40,11 +46,12 @@ function Task(){
             boxes.map(box => 
             <div className='my-task' key={box.id}>
                 <div className="task-button-container">
+                    <p> {box.task} </p>
                     <button className='remove-task-button' onClick={() => removeTask(box.id)}>
                         Remove
                     </button>
 
-                    <button className='done-task-button' onClick={() => checkTask(box.id)}>
+                    <button className='done-task-button' onClick={() => checkTask(box.id, box.task)}>
                         Done
                     </button>
                 </div>
@@ -54,10 +61,11 @@ function Task(){
         <div className='done-task-container'>
             {doneBoxes.map(doneBox => 
             <div className='my-done-task' key={doneBox.id}>
+                <p> {doneBox.task} </p>
                 <button className='delete-task-button' onClick={() => deleteTask(doneBox.id)}>
                     Delete
                 </button>
-            </div>)}
+            </div>)}    
         </div>
     </div>
 }
