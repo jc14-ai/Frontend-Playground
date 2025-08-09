@@ -18,7 +18,7 @@ function Event(){
             const input = valueRef.current.value;
 
             if(input.toString() === "" || input.toString().trim() === "") return;
-            
+
             setCount(count => count + 1);
             setBoxes(boxes => [...boxes, {id: count, task: input}]);
             valueRef.current.value = "";
@@ -48,7 +48,7 @@ function Event(){
         <div className='event-container'>{
             boxes.map(box => 
             <div className='my-event' key={box.id}>
-                <p>{box.task}</p>
+                <p className='to-do'>{box.task}</p>
                 <div className="event-button-container">
                     <button className='remove-event-button' onClick={() => removeEvent(box.id)}>
                         Remove
@@ -64,7 +64,7 @@ function Event(){
         <div className='done-event-container'>
             {doneBoxes.map(doneBox => 
             <div className='my-done-event' key={doneBox.id}>
-                <p>{doneBox.task}</p>
+                <p className='to-do-done'>{doneBox.task}</p>
                 <button className='delete-event-button' onClick={() => deleteEvent(doneBox.id)}>
                     Delete
                 </button>

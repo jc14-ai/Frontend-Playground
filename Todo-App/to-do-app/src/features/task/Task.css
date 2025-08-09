@@ -43,14 +43,15 @@
 
 .my-task{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     flex-direction: row;
     height: 50px;
     width: 93%;
     background-color:  rgb(231, 152, 152);
     border-radius: 40px;
-    padding-right: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -59,7 +60,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100px;
+    width: 70px;
 }
 
 .done-task-container{
@@ -75,30 +76,62 @@
 
 .my-done-task{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     flex-direction: row;
     height: 50px;
     width: 93%;
     background-color:  rgb(118, 221, 125);
     border-radius: 40px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
 .remove-task-button{
+    background-color: transparent;
     border: none;
     border-radius: 40px;
 }
 
 .done-task-button{
+    background-color: transparent;
     border: none;
     border-radius: 40px;
 }
 
 .delete-task-button{
+    background-color: transparent;
     border: none;
     border-radius: 40px;
+}
+
+.to-do{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.3em;
+    font-family: "Roboto Condensed", sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.to-do-done{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.3em;
+    font-family: "Roboto Condensed", sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.remove-img{
+    width: 25px;
+}
+
+.done-img{
+    width: 25px;
+}
+
+.delete-img{
+    width: 25px;
 }
 

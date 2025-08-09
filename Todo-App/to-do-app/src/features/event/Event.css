@@ -48,7 +48,7 @@
     flex-direction: row;
     height: 50px;
     width: 93%;
-    background-color:  rgb(220, 231, 152);
+    background-color:  rgb(207, 225, 101);
     border-radius: 40px;
     padding-right: 20px;
     margin-top: 5px;
@@ -100,5 +100,25 @@
 .delete-event-button{
     border: none;
     border-radius: 40px;
+}
+
+.to-do{
+    display: flex;
+    justify-content: flex-start;
+    width: 170px;
+    max-width: 170px;
+    font-size: 1.3em;
+    font-family: "Roboto Condensed", sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.to-do-done{
+    display: flex;
+    justify-content: flex-start;
+    width: 230px;
+    max-width: 230px;
+    font-size: 1.3em;
+    font-family: "Roboto Condensed", sans-serif;
+    color: rgb(255, 255, 255);
 }
 
