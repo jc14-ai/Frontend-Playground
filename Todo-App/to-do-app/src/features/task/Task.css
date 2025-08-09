@@ -47,18 +47,18 @@
     align-items: center;
     flex-direction: row;
     height: 50px;
-    width: 93%;
+    width: 90%;
     background-color:  rgb(231, 152, 152);
     border-radius: 40px;
     padding-right: 10px;
-    padding-left: 10px;
+    padding-left: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
 .task-button-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 70px;
 }
@@ -80,31 +80,13 @@
     align-items: center;
     flex-direction: row;
     height: 50px;
-    width: 93%;
+    width: 90%;
     background-color:  rgb(118, 221, 125);
     border-radius: 40px;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
-}
-
-.remove-task-button{
-    background-color: transparent;
-    border: none;
-    border-radius: 40px;
-}
-
-.done-task-button{
-    background-color: transparent;
-    border: none;
-    border-radius: 40px;
-}
-
-.delete-task-button{
-    background-color: transparent;
-    border: none;
-    border-radius: 40px;
 }
 
 .to-do{
@@ -125,13 +107,16 @@
 
 .remove-img{
     width: 25px;
+    cursor: pointer;
 }
 
 .done-img{
     width: 25px;
+    cursor: pointer;
 }
 
 .delete-img{
     width: 25px;
+    cursor: pointer;
 }
 

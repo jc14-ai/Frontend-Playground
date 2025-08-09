@@ -1,7 +1,10 @@
 import { useState, useRef} from "react";
 import removeG from "../../assets/remove_gray.png";
+import removeW from "../../assets/remove_white.png";
 import doneG from "../../assets/done_gray.png";
+import doneW from "../../assets/done_white.png";
 import deleteG from "../../assets/delete_gray.png";
+import deleteW from "../../assets/delete_white.png";
 import './Task.css'
 
 interface Props{
@@ -15,6 +18,10 @@ function Task(){
     const [boxes, setBoxes] = useState<Props[]>([]);
     const [doneBoxes, setDoneBoxes] = useState<Props[]>([]);
     const valueRef = useRef<HTMLInputElement>(null);
+    const removeRef = useRef<HTMLImageElement>(null);
+    const doneRef = useRef<HTMLImageElement>(null);
+    const deleteRef = useRef<HTMLImageElement>(null);
+    // const [hasEntered, setEntered] = useState<boolean>(false);
 
     const addTask = ():void => {
         if (valueRef.current){
@@ -26,6 +33,33 @@ function Task(){
             setBoxes(box => [...box, {id: count, task: input}]);
             valueRef.current.value = "";
         }
+    }
+
+    const hoverRemove = ():void => {
+        if(removeRef.current)
+            removeRef.current.src = removeW;
+    }
+    const exitRemove = ():void => {
+        if(removeRef.current)
+            removeRef.current.src = removeG;
+    }
+
+    const hoverDone = ():void => {
+        if(doneRef.current)
+            doneRef.current.src = doneW;
+    }
+    const exitDone = ():void => {
+        if(doneRef.current)
+            doneRef.current.src = doneG;
+    }
+
+    const hoverDelete = ():void => {
+        if(deleteRef.current)
+            deleteRef.current.src = deleteW;
+    }
+    const exitDelete = ():void => {
+        if(deleteRef.current)
+            deleteRef.current.src = deleteG;
     }
 
     const checkTask = (id:number, task:string):void => {
@@ -53,13 +87,19 @@ function Task(){
             <div className='my-task' key={box.id}>
                 <p className='to-do'> {box.task} </p>
                 <div className="task-button-container">
-                    <button className='remove-task-button' onClick={() => removeTask(box.id)}>
-                        <img className="remove-img" src={removeG}/>
-                    </button>
-
-                    <button className='done-task-button' onClick={() => checkTask(box.id, box.task)}>
-                        <img className="done-img" src={doneG}/>
-                    </button>
+                    <img className="remove-img" 
+                        src={removeG}
+                        ref={removeRef}
+                        onMouseEnter={() => hoverRemove()}
+                        onMouseLeave={() => exitRemove()} 
+                        onClick={() => removeTask(box.id)}/>
+                    
+                    <img className="done-img" 
+                        src={doneG} 
+                        onClick={() => checkTask(box.id, box.task)}
+                        ref={doneRef}
+                        onMouseEnter={() => hoverDone()}
+                        onMouseLeave={() => exitDone()} />
                 </div>
             </div>)}
         </div>
@@ -67,10 +107,13 @@ function Task(){
         <div className='done-task-container'>
             {doneBoxes.map(doneBox => 
             <div className='my-done-task' key={doneBox.id}>
-                <p className='to-do-done'> {doneBox.task} </p>
-                <button className='delete-task-button' onClick={() => deleteTask(doneBox.id)}>
-                    <img className="delete-img" src={deleteG}/>
-                </button>
+                <p className='to-do-done'> {doneBox.task} </p>    
+                <img className="delete-img" 
+                onClick={() => deleteTask(doneBox.id)} 
+                src={deleteG}
+                ref={deleteRef}
+                onMouseEnter={() => hoverDelete()}
+                onMouseLeave={() => exitDelete()}/>
             </div>)}    
         </div>
     </div>
