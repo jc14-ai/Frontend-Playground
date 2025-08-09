@@ -16,6 +16,9 @@ function Task(){
     const addTask = ():void => {
         if (valueRef.current){
             const input = valueRef.current.value;
+
+            if(input.toString() === "" || input.toString().trim() === "") return;
+            
             setCount(count => count + 1);
             setBoxes(box => [...box, {id: count, task: input}]);
             valueRef.current.value = "";
@@ -45,8 +48,8 @@ function Task(){
         <div className='task-container'>{
             boxes.map(box => 
             <div className='my-task' key={box.id}>
+                <p> {box.task} </p>
                 <div className="task-button-container">
-                    <p> {box.task} </p>
                     <button className='remove-task-button' onClick={() => removeTask(box.id)}>
                         Remove
                     </button>
