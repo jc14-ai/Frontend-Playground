@@ -22,28 +22,28 @@ function Event(){
     const doneRef = useRef<HTMLImageElement>(null);
     const deleteRef = useRef<HTMLImageElement>(null);
 
-    const hoverRemove = () => {
-
+    const hoverRemove = (removeRef: HTMLImageElement) => {
+        if (removeRef) removeRef.src = removeW;
     }
 
-    const exitRemove = () => {
-        
+    const exitRemove = (removeRef: HTMLImageElement) => {
+        if(removeRef) removeRef.src = removeG;   
     }
 
-    const hoverDone = () => {
-        
+    const hoverDone = (doneRef: HTMLImageElement) => {
+        if(doneRef) doneRef.src = doneW; 
     }
 
-    const exitDone = () => {
-        
+    const exitDone = (doneRef: HTMLImageElement) => {
+        if(doneRef) doneRef.src = doneG; 
     }
 
-    const hoverDelete = () => {
-        
+    const hoverDelete = (deleteRef: HTMLImageElement) => {
+        if(deleteRef) deleteRef.src = deleteW;
     }
 
-    const exitDelete = () => {
-        
+    const exitDelete = (deleteRef: HTMLImageElement) => {
+        if(deleteRef) deleteRef.src = deleteG; 
     }
     
     const addEvent = ():void => {
@@ -83,17 +83,21 @@ function Event(){
             <div className='my-event' key={box.id}>
                 <p className='to-do'>{box.task}</p>
                 <div className="event-button-container">
-                    <button className='remove-event-button'>
-                        <img className=""
-                            onClick={() => removeEvent(box.id)}
-                            src={removeG}
-                            ref={removeRef}
-                            />
-                    </button>
+                    <img className="remove-img"
+                        onClick={() => removeEvent(box.id)}
+                        src={removeG}
+                        ref={removeRef}
+                        onMouseEnter={(removeRef) => hoverRemove(removeRef.currentTarget)}
+                        onMouseLeave={(removeRef) => exitRemove(removeRef.currentTarget)}
+                        />
 
-                    <button className='done-event-button' onClick={() => checkEvent(box.id, box.task)}>
-                        Done
-                    </button>
+                    <img className="done-img"
+                        onClick={() => checkEvent(box.id, box.task)}
+                        src={doneG}
+                        ref={doneRef}
+                        onMouseEnter={(doneRef) => hoverDone(doneRef.currentTarget)}
+                        onMouseLeave={(doneRef) => exitDone(doneRef.currentTarget)}
+                        />
                 </div>
             </div>)}
         </div>
@@ -102,9 +106,13 @@ function Event(){
             {doneBoxes.map(doneBox => 
             <div className='my-done-event' key={doneBox.id}>
                 <p className='to-do-done'>{doneBox.task}</p>
-                <button className='delete-event-button' onClick={() => deleteEvent(doneBox.id)}>
-                    Delete
-                </button>
+                    <img className="done-img"
+                        onClick={() => deleteEvent(doneBox.id)}
+                        src={deleteG}
+                        ref={deleteRef}
+                        onMouseEnter={(deleteRef) => hoverDelete(deleteRef.currentTarget)}
+                        onMouseLeave={(deleteRef) => exitDelete(deleteRef.currentTarget)}
+                        />
             </div>)}
         </div>
     </div>
