@@ -19,7 +19,7 @@ function Task(){
     const [doneBoxes, setDoneBoxes] = useState<Props[]>([]);
     const valueRef = useRef<HTMLInputElement>(null);
     const removeRef = useRef<HTMLImageElement>(null);
-    const doneRef = useRef<HTMLImageElement>(null);
+    const doneRef = useRef<HTMLImageElement>(null); 
     const deleteRef = useRef<HTMLImageElement>(null);
     // const [hasEntered, setEntered] = useState<boolean>(false);
 
@@ -35,31 +35,31 @@ function Task(){
         }
     }
 
-    const hoverRemove = ():void => {
-        if(removeRef.current)
-            removeRef.current.src = removeW;
+    const hoverRemove = (removeRef: HTMLImageElement):void => {
+        if(removeRef)
+            removeRef.src = removeW;
     }
-    const exitRemove = ():void => {
-        if(removeRef.current)
-            removeRef.current.src = removeG;
-    }
-
-    const hoverDone = ():void => {
-        if(doneRef.current)
-            doneRef.current.src = doneW;
-    }
-    const exitDone = ():void => {
-        if(doneRef.current)
-            doneRef.current.src = doneG;
+    const exitRemove = (removeRef: HTMLImageElement):void => {
+        if(removeRef)
+            removeRef.src = removeG;
     }
 
-    const hoverDelete = ():void => {
-        if(deleteRef.current)
-            deleteRef.current.src = deleteW;
+    const hoverDone = (doneRef: HTMLImageElement):void => {
+        if(doneRef)
+            doneRef.src = doneW;
     }
-    const exitDelete = ():void => {
-        if(deleteRef.current)
-            deleteRef.current.src = deleteG;
+    const exitDone = (doneRef: HTMLImageElement):void => {
+        if(doneRef)
+            doneRef.src = doneG;
+    }
+
+    const hoverDelete = (deleteRef: HTMLImageElement):void => {
+        if(deleteRef)
+            deleteRef.src = deleteW;
+    }
+    const exitDelete = (deleteRef: HTMLImageElement):void => {
+        if(deleteRef)
+            deleteRef.src = deleteG;
     }
 
     const checkTask = (id:number, task:string):void => {
@@ -89,17 +89,17 @@ function Task(){
                 <div className="task-button-container">
                     <img className="remove-img" 
                         src={removeG}
-                        ref={removeRef}
-                        onMouseEnter={() => hoverRemove()}
-                        onMouseLeave={() => exitRemove()} 
+                        ref={removeRef} 
+                        onMouseEnter={(removeRef) => hoverRemove(removeRef.currentTarget)}
+                        onMouseLeave={(removeRef) => exitRemove(removeRef.currentTarget)} 
                         onClick={() => removeTask(box.id)}/>
                     
                     <img className="done-img" 
                         src={doneG} 
                         onClick={() => checkTask(box.id, box.task)}
                         ref={doneRef}
-                        onMouseEnter={() => hoverDone()}
-                        onMouseLeave={() => exitDone()} />
+                        onMouseEnter={(doneRef) => hoverDone(doneRef.currentTarget)}
+                        onMouseLeave={(doneRef) => exitDone(doneRef.currentTarget)} />
                 </div>
             </div>)}
         </div>
@@ -112,8 +112,8 @@ function Task(){
                 onClick={() => deleteTask(doneBox.id)} 
                 src={deleteG}
                 ref={deleteRef}
-                onMouseEnter={() => hoverDelete()}
-                onMouseLeave={() => exitDelete()}/>
+                onMouseEnter={(deleteRef) => hoverDelete(deleteRef.currentTarget)}
+                onMouseLeave={(deleteRef) => exitDelete(deleteRef.currentTarget)}/>
             </div>)}    
         </div>
     </div>

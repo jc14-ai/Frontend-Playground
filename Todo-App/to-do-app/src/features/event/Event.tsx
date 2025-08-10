@@ -45,8 +45,8 @@ function Event(){
             Add Event
         </button>
 
-        <div className='event-container'>{
-            boxes.map(box => 
+        <div className='event-container'>
+            {boxes.map(box => 
             <div className='my-event' key={box.id}>
                 <p className='to-do'>{box.task}</p>
                 <div className="event-button-container">
