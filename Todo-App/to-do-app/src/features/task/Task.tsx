@@ -18,9 +18,6 @@ function Task(){
     const [boxes, setBoxes] = useState<Props[]>([]);
     const [doneBoxes, setDoneBoxes] = useState<Props[]>([]);
     const valueRef = useRef<HTMLInputElement>(null);
-    const removeRef = useRef<HTMLImageElement>(null);
-    const doneRef = useRef<HTMLImageElement>(null); 
-    const deleteRef = useRef<HTMLImageElement>(null);
     // const [hasEntered, setEntered] = useState<boolean>(false);
 
     const addTask = ():void => {
@@ -29,50 +26,23 @@ function Task(){
 
             if(input.toString() === "" || input.toString().trim() === "") return;
 
-            setCount(count => count + 1);
-            setBoxes(box => [...box, {id: count, task: input}]);
+            setCount((count: number):number => count + 1);
+            setBoxes((box: Props[]):Props[] => [...box, {id: count, task: input}]);
             valueRef.current.value = "";
         }
     }
 
-    const hoverRemove = (removeRef: HTMLImageElement):void => {
-        if(removeRef)
-            removeRef.src = removeW;
-    }
-    const exitRemove = (removeRef: HTMLImageElement):void => {
-        if(removeRef)
-            removeRef.src = removeG;
-    }
-
-    const hoverDone = (doneRef: HTMLImageElement):void => {
-        if(doneRef)
-            doneRef.src = doneW;
-    }
-    const exitDone = (doneRef: HTMLImageElement):void => {
-        if(doneRef)
-            doneRef.src = doneG;
-    }
-
-    const hoverDelete = (deleteRef: HTMLImageElement):void => {
-        if(deleteRef)
-            deleteRef.src = deleteW;
-    }
-    const exitDelete = (deleteRef: HTMLImageElement):void => {
-        if(deleteRef)
-            deleteRef.src = deleteG;
-    }
-
     const checkTask = (id:number, task:string):void => {
-        setDoneBoxes(doneBoxes => [...doneBoxes, {id: id, task: task}]);
+        setDoneBoxes((doneBoxes: Props[]):Props[] => [...doneBoxes, {id: id, task: task}]);
         removeTask(id);
     }
 
     const removeTask = (id:number):void => {
-        setBoxes(boxes => boxes.filter(box => box.id !== id))
+        setBoxes((boxes: Props[]):Props[] => boxes.filter(box => box.id !== id));
     }
 
     const deleteTask = (id:number):void => {
-        setDoneBoxes(boxes => boxes.filter(box => box.id !== id))
+        setDoneBoxes((boxes: Props[]):Props[] => boxes.filter(box => box.id !== id));
     }
 
     return <div className='Task'>
@@ -83,37 +53,34 @@ function Task(){
         </button>
 
         <div className='task-container'>{
-            boxes.map(box => 
+            boxes.map((box: Props) => 
             <div className='my-task' key={box.id}>
                 <p className='to-do'> {box.task} </p>
                 <div className="task-button-container">
                     <img className="remove-img" 
                         src={removeG}
-                        ref={removeRef} 
-                        onMouseEnter={(removeRef) => hoverRemove(removeRef.currentTarget)}
-                        onMouseLeave={(removeRef) => exitRemove(removeRef.currentTarget)} 
+                        onMouseEnter={(me: React.MouseEvent<HTMLImageElement, MouseEvent>):string => me.currentTarget.src = removeW}
+                        onMouseLeave={(me: React.MouseEvent<HTMLImageElement, MouseEvent>):string => me.currentTarget.src = removeG} 
                         onClick={() => removeTask(box.id)}/>
                     
                     <img className="done-img" 
                         src={doneG} 
                         onClick={() => checkTask(box.id, box.task)}
-                        ref={doneRef}
-                        onMouseEnter={(doneRef) => hoverDone(doneRef.currentTarget)}
-                        onMouseLeave={(doneRef) => exitDone(doneRef.currentTarget)} />
+                        onMouseEnter={(me: React.MouseEvent<HTMLImageElement, MouseEvent>):string => me.currentTarget.src = doneW}
+                        onMouseLeave={(me: React.MouseEvent<HTMLImageElement, MouseEvent>):string => me.currentTarget.src = doneG} />
                 </div>
             </div>)}
         </div>
 
         <div className='done-task-container'>
-            {doneBoxes.map(doneBox => 
+            {doneBoxes.map((doneBox: Props) => 
             <div className='my-done-task' key={doneBox.id}>
                 <p className='to-do-done'> {doneBox.task} </p>    
                 <img className="delete-img" 
                 onClick={() => deleteTask(doneBox.id)} 
                 src={deleteG}
-                ref={deleteRef}
-                onMouseEnter={(deleteRef) => hoverDelete(deleteRef.currentTarget)}
-                onMouseLeave={(deleteRef) => exitDelete(deleteRef.currentTarget)}/>
+                onMouseEnter={(me: React.MouseEvent<HTMLImageElement, MouseEvent>):string => me.currentTarget.src = deleteW}
+                onMouseLeave={(me: React.MouseEvent<HTMLImageElement, MouseEvent>):string => me.currentTarget.src = deleteG}/>
             </div>)}    
         </div>
     </div>
