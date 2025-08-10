@@ -1,4 +1,10 @@
 import { useState, useRef } from "react";
+import removeG from '../../assets/remove_gray.png';
+import removeW from '../../assets/remove_white.png';
+import doneG from '../../assets/done_gray.png';
+import doneW from '../../assets/done_white.png';
+import deleteG from '../../assets/delete_gray.png';
+import deleteW from '../../assets/delete_white.png';
 import './Event.css'
 
 interface Props{
@@ -12,7 +18,34 @@ function Event(){
     const [boxes, setBoxes] = useState<Props[]>([]);
     const [doneBoxes, setDoneBoxes] = useState<Props[]>([]);
     const valueRef = useRef<HTMLInputElement>(null);
+    const removeRef = useRef<HTMLImageElement>(null);
+    const doneRef = useRef<HTMLImageElement>(null);
+    const deleteRef = useRef<HTMLImageElement>(null);
 
+    const hoverRemove = () => {
+
+    }
+
+    const exitRemove = () => {
+        
+    }
+
+    const hoverDone = () => {
+        
+    }
+
+    const exitDone = () => {
+        
+    }
+
+    const hoverDelete = () => {
+        
+    }
+
+    const exitDelete = () => {
+        
+    }
+    
     const addEvent = ():void => {
         if(valueRef.current){
             const input = valueRef.current.value;
@@ -50,8 +83,12 @@ function Event(){
             <div className='my-event' key={box.id}>
                 <p className='to-do'>{box.task}</p>
                 <div className="event-button-container">
-                    <button className='remove-event-button' onClick={() => removeEvent(box.id)}>
-                        Remove
+                    <button className='remove-event-button'>
+                        <img className=""
+                            onClick={() => removeEvent(box.id)}
+                            src={removeG}
+                            ref={removeRef}
+                            />
                     </button>
 
                     <button className='done-event-button' onClick={() => checkEvent(box.id, box.task)}>
